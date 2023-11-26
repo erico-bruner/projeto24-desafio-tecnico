@@ -1,19 +1,45 @@
 import styled from "styled-components";
 import { CiSearch } from "react-icons/ci";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import CityContext from "../contexts/CityContext";
+import axios from "axios";
+import { geocodingApiResProps, openWeatherMapApiResProps } from "../protocols";
 
 export default function Input() {
-  const { city, setCity } = useContext(CityContext);
+  const [input, setInput] = useState("");
+  const { setCity } = useContext(CityContext);
+
+  async function handleSearchCity() {
+    try {
+      const apiKey = import.meta.env.VITE_OPEN_WEATHER_MAP_KEY;
+      const geocodingApiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=5&appid=${apiKey}`;
+
+      const { data } = await axios.get<geocodingApiResProps[]>(geocodingApiUrl);
+      const { lat, lon } = data[0];
+
+      const openWeatherMapApiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+      const respOpen = await axios.get<openWeatherMapApiResProps>(
+        openWeatherMapApiUrl
+      );
+
+      setCity(respOpen.data);
+      setInput(respOpen.data.name);
+    } catch (error) {
+      console.error("Erro ao obter coordenadas:", error);
+    }
+  }
 
   return (
     <Container>
-      <SCSearchIcon />
+      <button onClick={() => handleSearchCity()}>
+        <SCSearchIcon />
+      </button>
+
       <SCInput
         placeholder="Procure por uma cidade"
         type="text"
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
       />
     </Container>
   );
