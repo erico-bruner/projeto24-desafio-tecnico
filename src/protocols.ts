@@ -46,3 +46,9 @@ export type openWeatherMapApiResProps = {
     gust: number;
   };
 };
+
+export type switchProps = {
+  text: string;
+  checked: boolean;
+  setChecked: Dispatch<SetStateAction<boolean>>;
+};

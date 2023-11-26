@@ -17,12 +17,13 @@ export default function Input() {
       const { data } = await axios.get<geocodingApiResProps[]>(geocodingApiUrl);
       const { lat, lon } = data[0];
 
-      const openWeatherMapApiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+      const openWeatherMapApiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=pt_br&units=metric&appid=${apiKey}`;
       const respOpen = await axios.get<openWeatherMapApiResProps>(
         openWeatherMapApiUrl
       );
 
       setCity(respOpen.data);
+      console.log(respOpen.data);
       setInput(respOpen.data.name);
     } catch (error) {
       console.error("Erro ao obter coordenadas:", error);
@@ -57,10 +58,15 @@ const Container = styled.div`
   padding-right: 1.05vw;
   gap: 0.52vw;
   box-shadow: 0px 24px 48px 0px rgba(49, 79, 124, 0.08);
+
+  > button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
 `;
 
 const SCSearchIcon = styled(CiSearch)`
-  cursor: pointer;
   font-size: 2vw;
 `;
 
