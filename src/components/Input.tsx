@@ -30,6 +30,12 @@ export default function Input() {
     }
   }
 
+  function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
+    if (event.key === "Enter") {
+      handleSearchCity();
+    }
+  }
+
   return (
     <Container>
       <button onClick={() => handleSearchCity()}>
@@ -41,6 +47,7 @@ export default function Input() {
         type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}
+        onKeyDown={handleKeyDown}
       />
     </Container>
   );
