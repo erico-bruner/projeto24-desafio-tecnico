@@ -1,30 +1,39 @@
-# React + TypeScript + Vite
+# Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a frontend application of the technical challenge proposed by [@Driven](https://www.driven.com.br/). In this application you can search for cities and view their climate, both current and forecast.
 
-Currently, two official plugins are available:
+# Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+https://technical-challenge-api.onrender.com
 
-## Expanding the ESLint configuration
+# How it works?
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+This project is a frontend to serve a weather website application. It has an input where you can type the name of a city and view its weather and forecast. To access the weather forecast, you need to navigate to the "Próximos dias" menu.
 
-- Configure the top-level `parserOptions` property like this:
+# Technologies
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+For this project, the following were used:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- React (v 18.2.0);
+- TypeScript;
+- Styled-components;
+- Postgres;
+- Recharts;
+- Date-fns;
+
+# How to run in development
+
+- Clone this repository
+- Install all dependencies
+
+  ```bash
+  npm i
+  ```
+- Configure the `.env` file using the `.env.example` file (this file must contain the Open Weather Map library access key, see the library for more information: https://openweathermap.org/)
+
+- Run the frontend in a development environment:
+
+  ```bash
+  npm run dev
+  ```
+  
