@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 import {
   CityContextProps,
   CityProviderProps,
-  openWeatherMapApiResProps,
+  OpenWeatherMapApiResProps,
 } from "../protocols";
 
 const CityContext = createContext<CityContextProps>({
@@ -13,7 +13,7 @@ const CityContext = createContext<CityContextProps>({
 export default CityContext;
 
 export function CityProvider({ children }: CityProviderProps) {
-  const [city, setCity] = useState<openWeatherMapApiResProps | null>(null);
+  const [city, setCity] = useState<OpenWeatherMapApiResProps | null>(null);
 
   return (
     <CityContext.Provider value={{ city, setCity }}>
