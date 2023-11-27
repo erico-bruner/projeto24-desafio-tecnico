@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Menu from "../components/Menu";
 import { useContext } from "react";
 import CityContext from "../contexts/CityContext";
+import Navbar from "../components/Navbar";
 
 export default function ChartPage() {
   const city = useContext(CityContext);
@@ -9,7 +10,9 @@ export default function ChartPage() {
   return (
     <Container>
       <Menu />
-      <Content>Cidade: {city.city}</Content>
+      <Content>
+        <Navbar />
+      </Content>
     </Container>
   );
 }
@@ -24,3 +27,5 @@ const Content = styled.div`
   height: 100vh;
   background: #efefef;
 `;
+
+const SCNav = styled.nav``;

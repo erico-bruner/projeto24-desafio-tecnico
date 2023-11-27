@@ -1,8 +1,8 @@
 import ReactSwitch from "react-switch";
 import styled from "styled-components";
-import { switchProps } from "../protocols";
+import { SwitchProps } from "../protocols";
 
-export default function Switch({ text, checked, setChecked }: switchProps) {
+export default function Switch({ text, checked, setChecked }: SwitchProps) {
   function handleChange(c: boolean) {
     setChecked(c);
   }

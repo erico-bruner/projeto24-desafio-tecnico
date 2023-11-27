@@ -1,20 +1,20 @@
 import { Dispatch, ReactNode, SetStateAction } from "react";
 
 export type CityContextProps = {
-  city: openWeatherMapApiResProps | null;
-  setCity: Dispatch<SetStateAction<openWeatherMapApiResProps | null>>;
+  city: OpenWeatherMapApiResProps | null;
+  setCity: Dispatch<SetStateAction<OpenWeatherMapApiResProps | null>>;
 };
 
 export type CityProviderProps = {
   children: ReactNode;
 };
 
-export type geocodingApiResProps = {
+export type GeocodingApiResProps = {
   lat: number;
   lon: number;
 };
 
-export type openWeatherMapApiResProps = {
+export type OpenWeatherMapApiResProps = {
   name: string;
   coord: {
     lon: number;
@@ -47,8 +47,13 @@ export type openWeatherMapApiResProps = {
   };
 };
 
-export type switchProps = {
+export type SwitchProps = {
   text: string;
   checked: boolean;
   setChecked: Dispatch<SetStateAction<boolean>>;
+};
+
+export type CardProps = {
+  title: string;
+  value: string;
 };

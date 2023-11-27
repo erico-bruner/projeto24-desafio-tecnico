@@ -3,7 +3,7 @@ import { CiSearch } from "react-icons/ci";
 import { useContext, useState } from "react";
 import CityContext from "../contexts/CityContext";
 import axios from "axios";
-import { geocodingApiResProps, openWeatherMapApiResProps } from "../protocols";
+import { GeocodingApiResProps, OpenWeatherMapApiResProps } from "../protocols";
 
 export default function Input() {
   const [input, setInput] = useState("");
@@ -14,11 +14,11 @@ export default function Input() {
       const apiKey = import.meta.env.VITE_OPEN_WEATHER_MAP_KEY;
       const geocodingApiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=5&appid=${apiKey}`;
 
-      const { data } = await axios.get<geocodingApiResProps[]>(geocodingApiUrl);
+      const { data } = await axios.get<GeocodingApiResProps[]>(geocodingApiUrl);
       const { lat, lon } = data[0];
 
       const openWeatherMapApiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=pt_br&units=metric&appid=${apiKey}`;
-      const respOpen = await axios.get<openWeatherMapApiResProps>(
+      const respOpen = await axios.get<OpenWeatherMapApiResProps>(
         openWeatherMapApiUrl
       );
 
