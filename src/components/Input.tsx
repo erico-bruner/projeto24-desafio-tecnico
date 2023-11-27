@@ -12,7 +12,7 @@ export default function Input() {
   async function handleSearchCity() {
     try {
       const apiKey = import.meta.env.VITE_OPEN_WEATHER_MAP_KEY;
-      const geocodingApiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=5&appid=${apiKey}`;
+      const geocodingApiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=5&appid=${apiKey}`;
 
       const { data } = await axios.get<GeocodingApiResProps[]>(geocodingApiUrl);
       const { lat, lon } = data[0];
