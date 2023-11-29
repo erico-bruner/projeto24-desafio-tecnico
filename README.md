@@ -4,7 +4,7 @@ This project is a frontend application of the technical challenge proposed by [@
 
 # Demo
 
-https://technical-challenge-api.onrender.com
+https://levo-um-casaquinho-umber.vercel.app/
 
 # How it works?
 
