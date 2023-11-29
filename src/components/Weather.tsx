@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import styled from "styled-components";
 import CityContext from "../contexts/CityContext";
+import { hashColor } from "../utils/colors";
+import { SCTemperatureProps } from "../protocols";
 
 export default function Weather() {
   const { city } = useContext(CityContext);
@@ -14,7 +16,7 @@ export default function Weather() {
               src={`https://openweathermap.org/img/wn/${city.weather[0].icon}@2x.png`}
               alt={`${city.weather[0].main} icon`}
             />
-            <SCTemperature>
+            <SCTemperature main={city.weather[0].main}>
               {Math.round(city.main.temp)}
               <span>°C</span>
             </SCTemperature>
@@ -54,10 +56,11 @@ const Container = styled.div`
   }
 `;
 
-const SCTemperature = styled.h1`
+const SCTemperature = styled.h1<SCTemperatureProps>`
   display: flex;
   font-weight: 300;
   font-size: 7.84vw;
+  color: ${({ main }) => hashColor[main]};
 
   > span {
     font-size: 6.26vw;

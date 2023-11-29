@@ -1,4 +1,5 @@
-import { Dispatch, ReactNode, SetStateAction } from "react";
+import { Dispatch, HTMLAttributes, ReactNode, SetStateAction } from "react";
+import { hashColor } from "./utils/colors";
 
 export type CityContextProps = {
   city: OpenWeatherMapApiResProps | null;
@@ -23,7 +24,7 @@ export type OpenWeatherMapApiResProps = {
   weather: [
     {
       id: number;
-      main: string;
+      main: keyof typeof hashColor;
       description: string;
       icon: string;
     }
@@ -57,3 +58,7 @@ export type CardProps = {
   title: string;
   value: string;
 };
+
+export interface SCTemperatureProps extends HTMLAttributes<HTMLHeadingElement> {
+  main: keyof typeof hashColor;
+}
