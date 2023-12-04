@@ -72,6 +72,10 @@ export default function DashboardPage() {
 const Container = styled.div`
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
 `;
 
 const Content = styled.div`
@@ -88,6 +92,18 @@ const Content = styled.div`
     font-style: italic;
     font-weight: 400;
     font-size: 1.25vw;
+
+    @media (max-width: 767px) {
+      font-size: 6vw;
+    }
+  }
+
+  @media (max-width: 767px) {
+    width: 100%;
+    min-height: 80vh;
+    height: auto;
+    gap: 12vw;
+    padding: 5vw;
   }
 `;
 
@@ -95,6 +111,10 @@ const SCFooterMessage = styled.footer`
   color: #222;
   font-weight: 400;
   font-size: 1.25vw;
+
+  @media (max-width: 767px) {
+    font-size: 4.3vw;
+  }
 `;
 
 const SCLink = styled(Link)`
@@ -108,7 +128,11 @@ const SCCardGroup = styled.div`
   flex-wrap: wrap;
   width: 100%;
   justify-content: space-between;
-  gap: 4.66vh;
+  gap: 3vh;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
 `;
 
 const SCCityName = styled.div`
@@ -119,11 +143,19 @@ const SCCityName = styled.div`
     color: #222;
     font-weight: 400;
     font-size: 7.84vw;
+
+    @media (max-width: 767px) {
+      font-size: 15vw;
+    }
   }
 
   > span {
     font-weight: 400;
     color: #222;
     font-size: 1.25vw;
+
+    @media (max-width: 767px) {
+      font-size: 4.5vw;
+    }
   }
 `;

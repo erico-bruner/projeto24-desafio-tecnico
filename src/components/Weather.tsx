@@ -36,12 +36,23 @@ const Container = styled.div`
   padding-bottom: 4vh;
   border-bottom: 5px solid #ededed;
 
+  @media (max-width: 767px) {
+    padding-bottom: 3vh;
+    padding-top: 3vh;
+    width: 100%;
+  }
+
   > span {
     margin-top: 4vh;
     font-weight: 400;
     font-size: 1.68vw;
     color: #222;
     text-transform: capitalize;
+
+    @media (max-width: 767px) {
+      font-size: 6vw;
+      margin-top: 2vh;
+    }
   }
 
   > div {
@@ -52,6 +63,11 @@ const Container = styled.div`
     > img {
       width: 7.84vw;
       height: 7.84vw;
+
+      @media (max-width: 767px) {
+        width: 22vw;
+        height: 22vw;
+      }
     }
   }
 `;
@@ -62,7 +78,15 @@ const SCTemperature = styled.h1<SCTemperatureProps>`
   font-size: 7.84vw;
   color: ${({ main }) => hashColor[main]};
 
+  @media (max-width: 767px) {
+    font-size: 22vw;
+  }
+
   > span {
     font-size: 6.26vw;
+
+    @media (max-width: 767px) {
+      font-size: 16vw;
+    }
   }
 `;

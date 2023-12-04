@@ -21,15 +21,29 @@ const SCContainer = styled.div`
   justify-content: center;
   gap: 5px;
 
+  @media (max-width: 767px) {
+    width: 100%;
+    height: 14vh;
+    padding-left: 5vw;
+  }
+
   > h1 {
     color: #fff;
     font-weight: 700;
     font-size: 1.15vw;
+
+    @media (max-width: 767px) {
+      font-size: 5vw;
+    }
   }
 
   > span {
     font-weight: 600;
     color: #fff;
     font-size: 2.51vw;
+
+    @media (max-width: 767px) {
+      font-size: 10vw;
+    }
   }
 `;

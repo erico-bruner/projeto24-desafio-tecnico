@@ -20,9 +20,17 @@ const Container = styled.header`
 
 const SCImage = styled.img`
   width: 6.26vw;
+
+  @media (max-width: 767px) {
+    width: 17vw;
+  }
 `;
 
 const SCTitle = styled.h1`
   font-weight: 600;
   font-size: 3.24vw;
+
+  @media (max-width: 767px) {
+    font-size: 10vw;
+  }
 `;

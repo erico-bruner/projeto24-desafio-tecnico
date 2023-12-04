@@ -3,6 +3,7 @@ import {
   CartesianGrid,
   Line,
   LineChart,
+  ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
@@ -21,7 +22,7 @@ export default function Chart() {
 
   const CustomYAxisTick = ({ x, y, payload }: any) => (
     <g transform={`translate(${x},${y})`}>
-      <text x={0} y={0} dy={16} fontSize={12} textAnchor="end" fill="#666">
+      <text x={0} y={0} dy={16} fontSize={15} textAnchor="end" fill="#666">
         {`${payload.value}°C`}
       </text>
     </g>
@@ -65,18 +66,18 @@ export default function Chart() {
   }
 
   return (
-    <LineChart
-      width={730}
-      height={250}
-      data={data}
-      margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-    >
-      <CartesianGrid />
-      <XAxis dataKey="date" />
-      <YAxis tick={<CustomYAxisTick />} />
-      <Tooltip formatter={(value) => `${value}°C`} />
+    <ResponsiveContainer width={"100%"} height={250}>
+      <LineChart
+        data={data}
+        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+      >
+        <CartesianGrid />
+        <XAxis dataKey="date" />
+        <YAxis tick={<CustomYAxisTick />} />
+        <Tooltip formatter={(value) => `${value}°C`} />
 
-      <Line type="monotone" dataKey="temperatura" stroke="#4F43AE" />
-    </LineChart>
+        <Line type="monotone" dataKey="temperatura" stroke="#4F43AE" />
+      </LineChart>
+    </ResponsiveContainer>
   );
 }

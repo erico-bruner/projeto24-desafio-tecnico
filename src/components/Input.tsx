@@ -72,10 +72,18 @@ const Container = styled.div`
     border: none;
     cursor: pointer;
   }
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `;
 
 const SCSearchIcon = styled(CiSearch)`
   font-size: 2vw;
+
+  @media (max-width: 767px) {
+    font-size: 8vw;
+  }
 `;
 
 const SCInput = styled.input`
@@ -93,5 +101,13 @@ const SCInput = styled.input`
     font-family: Montserrat;
     font-weight: 500;
     font-size: 1.15vw;
+
+    @media (max-width: 767px) {
+      font-size: 5vw;
+    }
+  }
+
+  @media (max-width: 767px) {
+    font-size: 5vw;
   }
 `;

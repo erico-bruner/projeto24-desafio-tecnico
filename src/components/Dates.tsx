@@ -30,4 +30,9 @@ const Container = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 1vh;
+
+  @media (max-width: 767px) {
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+  }
 `;
