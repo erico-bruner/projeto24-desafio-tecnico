@@ -23,7 +23,6 @@ export default function Input() {
       );
 
       setCity(respOpen.data);
-      console.log(respOpen.data);
       setInput(respOpen.data.name);
     } catch (error) {
       console.error("Erro ao obter coordenadas:", error);

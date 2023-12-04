@@ -28,8 +28,8 @@ export default function Chart() {
     </g>
   );
 
-  function dataConvert(data: number) {
-    const diasSemana = [
+  function dateConvert(data: number) {
+    const daysWeek = [
       "(Dom)",
       "(Seg)",
       "(Ter)",
@@ -39,8 +39,8 @@ export default function Chart() {
       "(Sáb)",
     ];
     const dateObject = new Date(data * 1000);
-    const dataFormatada = format(dateObject, "dd/MM");
-    return dataFormatada + ` ${diasSemana[dateObject.getDay()]}`;
+    const dateFormatted = format(dateObject, "dd/MM");
+    return dateFormatted + ` ${daysWeek[dateObject.getDay()]}`;
   }
 
   async function handleSearchCity() {
@@ -48,18 +48,13 @@ export default function Chart() {
       const apiKey = import.meta.env.VITE_OPEN_WEATHER_MAP_KEY;
       const openWeatherMapApiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${city?.coord.lat}&lon=${city?.coord.lon}&cnt=40&&lang=pt_br&units=metric&appid=${apiKey}`;
       const respOpen = await axios.get(openWeatherMapApiUrl);
-
-      console.log(respOpen.data.list);
-
       const datas = respOpen.data.list.map((item: any) => {
         return {
-          date: dataConvert(item.dt),
+          date: dateConvert(item.dt),
           temperatura: Math.round(item.main.temp),
         };
       });
-
       setData(datas);
-      console.log("FORMATADO: ", data);
     } catch (error) {
       console.error("Erro ao obter coordenadas:", error);
     }

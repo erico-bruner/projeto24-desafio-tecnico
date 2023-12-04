@@ -29,7 +29,7 @@ export default function DashboardPage() {
     );
   }
 
-  const TakeACoat =
+  const takeACoat =
     city?.main.temp < 17 ||
     city?.main.temp_min < 17 ||
     city?.main.temp_max < 17;
@@ -55,7 +55,7 @@ export default function DashboardPage() {
         </SCCardGroup>
 
         <span>
-          {TakeACoat
+          {takeACoat
             ? "Sim, você deve levar um casaquinho!"
             : "Não, você não deve levar um casaquinho!"}
         </span>
